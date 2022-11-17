@@ -32,7 +32,7 @@ flutter run -h
 ##   :a: ***Available flutter commands***  
 ### 1]  Delete the build/ and .dart_tool/ directories.
 ```
-clean 
+clean     
 ```
 ### 2] showing List all connected devices. 
 ```
