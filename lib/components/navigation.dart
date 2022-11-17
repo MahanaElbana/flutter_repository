@@ -50,12 +50,20 @@ class ButtonNavigator extends StatelessWidget {
  
 List<ButtonNavigator> screenLists(BuildContext ctx) {
     return [
-      // =============   ============================//
+      // =============   homeSearch ============================//
       const ButtonNavigator(
        // backgroundColor: Colors.grey,
        // hoverColor: Colors.green,
         textString: "search Page",
         screenName: ScreenName.homeSearch,
+      ),
+      
+     // =============   DrawerScreen ============================//
+      const ButtonNavigator(
+       backgroundColor: Colors.deepPurple,
+        hoverColor: Colors.pink,
+        textString: "Drawer Screen",
+        screenName: ScreenName.drawerScreen,
       ),
       // =============   ============================//
     ];
