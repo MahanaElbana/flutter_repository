@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'components/route_page.dart';
 
 void main() {
-  runApp(FlutterAlgorithmsAndWidgets());
+  runApp( const RepoFlutter());
 }
 
-class FlutterAlgorithmsAndWidgets extends StatelessWidget {
+class RepoFlutter extends StatelessWidget {
+  const RepoFlutter({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,6 +16,7 @@ class FlutterAlgorithmsAndWidgets extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      initialRoute: Navigator.defaultRouteName,
       onGenerateRoute: (RouteSettings setting) =>
           RoutePage.onRoutePage(setting),
     );

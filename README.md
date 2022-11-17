@@ -49,3 +49,11 @@ flutter pub add "the name of package"
        flutter pub get
  ``` 
 ---
+
+# 
+
+```flutter
+ initialRoute: Navigator.defaultRouteName,
+ or 
+ initialRoute:'/',
+```
