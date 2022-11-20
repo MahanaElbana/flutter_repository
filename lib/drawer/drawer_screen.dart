@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 
@@ -19,8 +18,12 @@ class DrawerScreen extends StatelessWidget {
       slideWidth: MediaQuery.of(context).size.width * .80,
       openCurve: Curves.fastOutSlowIn,
       closeCurve: Curves.bounceIn,
-      mainScreen: const MainScreenDrawer(),
-      menuScreen: const MenuScreenDrawer(),
+
+
+      //===== main screen  and menu screen ==============//
+       mainScreen: const MainScreenDrawer(),
+       menuScreen: const MenuScreenDrawer(),
+      //===== main screen  and menu screen ==============//
     );
   }
 }
@@ -68,31 +71,45 @@ class MenuScreenDrawer extends StatelessWidget {
                   color: Colors.greenAccent.shade700,
                 ),
               ),
+                const SizedBox(height: 4.0),
+             const ListTile(
+                title:  Text('عبر الهاتف',
+                    style: TextStyle(color: Colors.black, fontSize: 22.0 ,fontFamily: 'NotoNaskhArabic')),
+                leading: Icon(
+                  Icons.phone,
+                  color: Color.fromARGB(255, 0, 27, 200),
+                ),
+              ),
               const SizedBox(height: 4.0),
               ListTile(
-                title: const Text('الفيس',
+                title: const Text('الفيس بوك',
                     style: TextStyle(color: Colors.black, fontSize: 22.0 ,fontFamily: 'NotoNaskhArabic')),
                 leading: Icon(
                   Icons.facebook,
                   color: Colors.blue.shade800,
                 ),
               ),
+            
               const SizedBox(height: 4.0),
               ListTile(
-                title: const Text('واتساب',
+                title: const Text('الموقع الجغرافي',
                     style: TextStyle(color: Colors.black, fontSize: 22.0 ,fontFamily: 'NotoNaskhArabic')),
                 leading: Icon(
-                  Icons.whatsapp,
-                  color: Colors.greenAccent.shade700,
+                  Icons.location_on_outlined,
+                  color: Colors.redAccent.shade700,
                 ),
               ),
-              const SizedBox(height: 4.0),
-              ListTile(
-                title: const Text('الفيس',
-                    style: TextStyle(color: Colors.black, fontSize: 22.0 ,fontFamily: 'NotoNaskhArabic')),
-                leading: Icon(
-                  Icons.facebook,
-                  color: Colors.blue.shade800,
+             
+                const SizedBox(height: 30.0),
+              const Tooltip(message: "mahney mohsen mohamed elbana",
+
+                child: ListTile(
+                  title:  Text('حول المطور',
+                      style: TextStyle(color: Colors.black87, fontSize: 22.0 ,fontFamily: 'NotoNaskhArabic')),
+                  leading: Icon(
+                    Icons.code_outlined,
+                    color: Color.fromARGB(255, 55, 5, 87),
+                  ),
                 ),
               ),
             ]),
@@ -115,80 +132,18 @@ class _MainScreenDrawerState extends State<MainScreenDrawer> {
 
   @override
   Widget build(BuildContext context) {
-    //print(_drawerController.isOpen);
-
-    // print(_drawerController.stateNotifier!.value);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(title: const Text('main screen'), actions: [
         IconButton(
             onPressed: () {
+
+              //================= action =================//
               ZoomDrawer.of(context)!.toggle();
+              //================= action =================//
             },
             icon: const Icon(Icons.menu))
       ]),
-    );
-  }
-}
-
-class AnimatedMainScreenDrawer extends StatefulWidget {
-  const AnimatedMainScreenDrawer({Key? key}) : super(key: key);
-
-  @override
-  State<AnimatedMainScreenDrawer> createState() =>
-      _AnimatedMainScreenDrawerState();
-}
-
-class _AnimatedMainScreenDrawerState extends State<AnimatedMainScreenDrawer> {
-  double changedValue = 0.0;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Text('kjkk'),
-        leading: IconButton(
-            icon: Icon(Icons.ac_unit_rounded),
-            onPressed: () {
-              setState(() {
-                changedValue == 0 ? changedValue = 1.0 : changedValue = 0.0;
-              });
-            }),
-      ),
-      body: SafeArea(
-        child: TweenAnimationBuilder(
-          tween: Tween<double>(begin: 0.0, end: changedValue),
-          duration: const Duration(milliseconds: 1000),
-          builder: (__, double value, _) {
-            return (
-                    //////////////////////
-                    Transform(
-              transform: Matrix4.identity()
-                ..setEntry(3, 2, 0.001)
-                ..setEntry(0, 3, 200 * value)
-                ..rotateY((pi / 6.0) * value),
-            )
-                /////////////////////
-                );
-          },
-          child: Scaffold(
-              backgroundColor: Colors.red,
-              body: Text("ds"),
-              appBar: AppBar(
-                backgroundColor: Colors.green,
-                title: Text('kjkk'),
-                leading: IconButton(
-                    icon: Icon(Icons.ac_unit_rounded),
-                    onPressed: () {
-                      setState(() {
-                        changedValue == 0
-                            ? changedValue = 1.0
-                            : changedValue = 0.0;
-                      });
-                    }),
-              )),
-        ),
-      ),
     );
   }
 }

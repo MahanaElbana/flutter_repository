@@ -36,7 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
           //   ...allAlgorithms(context)
           // ]
           
-          children: screenLists(context),
+         children: screenLists(context),
+
+      
         ),
       ),
 

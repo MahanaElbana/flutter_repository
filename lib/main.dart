@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_repository/list_card_animation/list_card_animation.dart';
 import 'components/route_page.dart';
 
 void main() {
@@ -11,6 +12,7 @@ class RepoFlutter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+       scrollBehavior: AppScrollBehavior(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Algorithms AndWidgets',
       theme: ThemeData(
