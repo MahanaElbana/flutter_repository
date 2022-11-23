@@ -4,6 +4,7 @@
 
  - Flutter common commands .
  - Project Structure . 
+ - upload flutter application on google play
  - Algorithms . 
  - Basic Widgets .
 
@@ -53,10 +54,10 @@
     flutter pub get
     ```   
   - How to print inforamtion about usage certain command ☄️
-   ```
-   flutter run --help
-   flutter run -h 
-   ```
+    ```
+    flutter run --help
+    flutter run -h 
+    ```
 
 ### Flutter project structure 😊
 
@@ -72,48 +73,47 @@
 
 
 
-# How to upload flutter application on google play 🚀
- -  Go to the following link 
-    ```
-    https://docs.flutter.dev/deployment/android
-    ```
-    - Create an upload keystore 
+### Upload flutter application on google play 😊
+  
+  1. Go to the following link ☄️
+     
+     [Build and release an Android app](https://docs.flutter.dev/deployment/android)
+     
+  1. Signing the app (Create an upload keystore) : [Signing the app](https://docs.flutter.dev/deployment/android#signing-the-app) ☄️
 
-- Copy key to the following path in flutter project 
+  1. Add the key to the following path in flutter project  ☄️
     - **flutter project** 
         - **android**
             - **app**     
                 - **upload-keystore.jks**
 
-- Create file with name **key.properties** in the following path 
-   - **android**
-      - **key.properties** 
+  1. Create file with name **key.properties** in the following path ☄️
+    - **android**
+       - **key.properties** 
 
-- Go to this file **key.properties** and add 
+  1. Go to this file **key.properties** and add ☄️
     - **Reference the keystore from the app**
-    ```
-    storePassword=password
-    keyPassword=password
-    keyAlias=upload
-    storeFile=../app/upload-keystore.jks
-    ``` 
+     ```
+     storePassword=password
+     keyPassword=password
+     keyAlias=upload
+     storeFile=../app/upload-keystore.jks
+     ``` 
 
-- Go to the following path 
-  
-  - android 
-    - app
-      -  build.gradle
-  - then apply 
-   ```
-   Configure signing in gradle
-   ```  
-- Go to   **.gitignore** and the add 
-   ```
+  1. Go to the following path from [Signing the app] apply [**Configure signing in gradle**] in the folloeing path ☄️
+     ```
+     android 
+         app
+          build.gradle
+     ```
+
+  1. Go to **.gitignore** and the add ☄️
+     ```
      **/android/key.properties
      **/android/app/upload-keystore.jks
-   ```
+     ```
 
-
+##
 ```flutter
  initialRoute: Navigator.defaultRouteName,
  or 
