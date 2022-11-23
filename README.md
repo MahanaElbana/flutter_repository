@@ -82,7 +82,7 @@
   1. Signing the app (Create an upload keystore) : [Signing the app](https://docs.flutter.dev/deployment/android#signing-the-app) ☄️
 
   1. Add the key to the following path in flutter project  ☄️
-    - **flutter project** 
+     - **flutter project** 
         - **android**
             - **app**     
                 - **upload-keystore.jks**
