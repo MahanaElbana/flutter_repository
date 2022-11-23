@@ -100,7 +100,7 @@
      storeFile=../app/upload-keystore.jks
      ``` 
 
-  1. Go to the following path from [Signing the app] apply [**Configure signing in gradle**] in the folloeing path ☄️
+  1. from [Signing the app] apply [**Configure signing in gradle**] in the following path ☄️
      ```
      android 
          app
@@ -113,7 +113,7 @@
      **/android/app/upload-keystore.jks
      ```
 
-##
+## under updating 
 ```flutter
  initialRoute: Navigator.defaultRouteName,
  or 
