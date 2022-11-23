@@ -74,24 +74,49 @@
 
 
 ### Upload flutter application on google play 😊
-  
-  1. Go to the following link ☄️
-     
-     [Build and release an Android app](https://docs.flutter.dev/deployment/android)
-     
-  1. Signing the app (Create an upload keystore) : [Signing the app](https://docs.flutter.dev/deployment/android#signing-the-app) ☄️
+  1. the videos 
+    - [Flutter & Google Play Store](https://www.youtube.com/watch?v=_enL3bRiHVI)
 
-  1. Add the key to the following path in flutter project  ☄️
+  2. Go to Android Asset Studio to Launcher icon generator : 
+   [Launcher icon generator](https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html#foreground.type=clipart&foreground.clipart=android&foreground.space.trim=1&foreground.space.pad=0.25&foreColor=rgba(96%2C%20125%2C%20139%2C%200)&backColor=rgb(68%2C%20138%2C%20255)&crop=0&backgroundShape=circle&effects=none&name=ic_launcher) ☄️
+  
+  3. Go to *flutter_project/pubspec.yaml* and add *log_forground.png* in assets ☄️
+     ``` pubspec.yaml
+     
+     dev_dependencies:
+       flutter_test:
+         sdk: flutter
+       flutter_launcher_icons:  
+     
+     flutter_icons:
+       android: true
+       ios: true
+       image_path: "assets/images/icon_logo.png"
+       adaptive_icon_background: "#ffffff"
+       adaptive_icon_foreground: "assets/images/log_forground.png"     
+     ```
+  4. Run the *flutter_launcher_icons* package ☄️
+     ```  
+     flutter pub get
+     flutter pub run flutter_launcher_icons
+     ```  
+  5. Go to (Flutter Launcher Icons)[https://pub.dev/packages/flutter_launcher_icons] ☄️
+  
+  6. Go to the following link : [Build and release an Android app](https://docs.flutter.dev/deployment/android) ☄️
+     
+  7. Signing the app (Create an upload keystore) : [Signing the app](https://docs.flutter.dev/deployment/android#signing-the-app) ☄️
+
+  8. Add the key to the following path in flutter project  ☄️
      - **flutter project** 
         - **android**
             - **app**     
                 - **upload-keystore.jks**
 
-  1. Create file with name **key.properties** in the following path ☄️
+  9.  Create file with name **key.properties** in the following path ☄️
     - **android**
        - **key.properties** 
 
-  1. Go to this file **key.properties** and add ☄️
+  10. Go to this file **key.properties** and add ☄️
     - **Reference the keystore from the app**
      ```
      storePassword=password
@@ -100,14 +125,14 @@
      storeFile=../app/upload-keystore.jks
      ``` 
 
-  1. from [Signing the app] apply [**Configure signing in gradle**] in the following path ☄️
+  11. from [Signing the app] apply [**Configure signing in gradle**] in the following path ☄️
      ```
      android 
          app
           build.gradle
      ```
 
-  1. Go to **.gitignore** and the add ☄️
+  12. Go to **.gitignore** and the add ☄️
      ```
      **/android/key.properties
      **/android/app/upload-keystore.jks
