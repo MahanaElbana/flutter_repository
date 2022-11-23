@@ -5,6 +5,7 @@
  - Flutter common commands .
  - Project Structure . 
  - upload flutter application on google play
+ - Flutter Urls .
  - Algorithms . 
  - Basic Widgets .
 
@@ -137,6 +138,12 @@
      **/android/key.properties
      **/android/app/upload-keystore.jks
      ```
+## Flutter Urls 😊
+ - [flutter repo on github](https://github.com/MahanaElbana/flutter_repository/blob/main/README.md) ☄️
+ - [Build and release an Android app](https://docs.flutter.dev/deployment/android#signing-the-app)
+ - [Flutter Launcher Icons ](https://pub.dev/packages/flutter_launcher_icons)
+ - [rename](https://pub.dev/packages/rename)
+ - [How to upload and publish the flutter App on the Google Play Store](https://youtu.be/_enL3bRiHVI)
 
 ## under updating 
 ```flutter
