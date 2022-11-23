@@ -1,56 +1,118 @@
-## flutter_repository 💚
-All widgets and algorithms which you want to know about flutter 
-# How do you Manage your Flutter app development ?
+# Flutter Repository 💚
 
-##   📝 📝 ***Common flutter commands*** 📝📝
-## 1] Create a new Flutter project in the specified directory 
-```shell
-flutter create "the name of project"
-```
-## 2] Run your Flutter application on an attached device or in an emulator.
-```
-flutter run [options] 
-``` 
-----
-##   👨‍🏫 👨‍🏫 ***usage flutter commands*** 👨‍🏫👨‍🏫
-### 1] flutter **[command]** [arguments] 
-### 2] flutter **[command]** [options]  
-### ***Example*** :trophy:
-```
-flutter run --help
-flutter run -h 
-```
----
-##   :o: ***Global flutter options*** 
-### 1] Print inforamtion about usage certain command 
-```
--h , --help
-flutter run --help
-flutter run -h
-```
----
-##   :a: ***Available flutter commands***  
-### 1]  Delete the build/ and .dart_tool/ directories.
-```
-clean     
-```
-### 2] showing List all connected devices. 
-```
-devices
-```
-### 3] :package: Commands for managing Flutter packages :package:
-```
-flutter pub add "the name of package"
-```
-### 4] :package:  Anather Command for managing Flutter packages :package:
-  - firstly add package in ***[ pubspec.yaml ]*** 
-  - and then run the following command 
-    - ```
-       flutter pub get
- ``` 
----
+## Topics 🔭
 
-# 
+ - Flutter common commands .
+ - Project Structure . 
+ - Algorithms . 
+ - Basic Widgets .
+
+### Flutter common commands 😊
+
+  - How to build android app (apk) ☄️
+    ```
+    flutter build apk
+    ```
+  - How to extract (AAB) app  ☄️ 
+    ```
+    flutter build appbundle --release
+    ```
+  - How to Run flutter project ☄️
+    ```
+    flutter run 
+    flutter run -d "device_name"
+    flutter run -d linux 
+    flutter run -d chrome 
+    ```   
+  - How to find available devices on flutter ☄️
+    ```
+    flutter devices 
+    ``` 
+  - How to create Linux files if they don't exist ☄️
+    ```
+    flutter create --platforms=linux .
+    ``` 
+  - How to create multiple platform files if they don't exist ☄️
+    ```
+    flutter create  .
+    ```   
+  - How to  delete the build/ and .dart_tool/ directories. ☄️
+    ```
+    flutter clean
+    ``` 
+  - How to create a new Flutter project in the specified directory ☄️
+    ```
+    flutter create "the name of project"
+    ```  
+  - How to add external package from [pub.dev](https://pub.dev/) ☄️
+    ```
+    flutter pub add "the name of package"
+    ```   
+  - How to manually install any package ☄️
+    ```
+    flutter pub get
+    ```   
+  - How to print inforamtion about usage certain command ☄️
+   ```
+   flutter run --help
+   flutter run -h 
+   ```
+
+### Flutter project structure 😊
+
+  - Where is the path of (AndroidManifest.xml) ☄️
+    ```
+    fluuter_project
+       android 
+           app 
+             src
+               main 
+                 AndroidManifest.xml
+    ```
+
+
+
+# How to upload flutter application on google play 🚀
+ -  Go to the following link 
+    ```
+    https://docs.flutter.dev/deployment/android
+    ```
+    - Create an upload keystore 
+
+- Copy key to the following path in flutter project 
+    - **flutter project** 
+        - **android**
+            - **app**     
+                - **upload-keystore.jks**
+
+- Create file with name **key.properties** in the following path 
+   - **android**
+      - **key.properties** 
+
+- Go to this file **key.properties** and add 
+    - **Reference the keystore from the app**
+    ```
+    storePassword=password
+    keyPassword=password
+    keyAlias=upload
+    storeFile=../app/upload-keystore.jks
+    ``` 
+
+- Go to the following path 
+  
+  - android 
+    - app
+      -  build.gradle
+  - then apply 
+   ```
+   Configure signing in gradle
+   ```  
+- Go to   **.gitignore** and the add 
+   ```
+     **/android/key.properties
+     **/android/app/upload-keystore.jks
+   ```
+
 
 ```flutter
  initialRoute: Navigator.defaultRouteName,
