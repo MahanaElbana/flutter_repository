@@ -248,3 +248,46 @@ class _AnimatedMainScreenDrawerState extends State<AnimatedMainScreenDrawer> {
       );
 
 ```
+## Flutte Route
+
+```dart
+class RoutePage {
+  static Route? onRoutePage(RouteSettings setting) {
+    if (setting.name == Navigator.defaultRouteName) {
+      return MaterialPageRoute(
+        builder: (_) => const HomeScreen(),
+      );
+    } else if (setting.name == ScreenName.drawerScreen) {
+      return MaterialPageRoute(
+        builder: (_) => const ZoomDrawerScreen(),
+      );
+    } else if (setting.name == ScreenName.cardListAnimation) {
+      return MaterialPageRoute(
+        builder: (_) => const CardListAnimation(),
+      );
+    } else if (setting.name == ScreenName.subCategories) {
+      return MaterialPageRoute(
+        builder: (_) => const SubCategories(),
+      );
+    } else if (setting.name == ScreenName.transformOne) {
+      return MaterialPageRoute(
+        builder: (_) => const TransformOne(),
+      );
+    }
+    // ====================== if route not founded ================//
+    else {
+      return MaterialPageRoute(
+        builder: (_) {
+          return Scaffold(
+            appBar: AppBar(
+              title: const Text('Route NOT FOUND !'),
+            ),
+            body: const Text('Route NOT FOUND !'),
+          );
+        },
+      );
+    }
+    // ====================== if route not founded ================//
+  }
+}
+```

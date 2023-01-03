@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
-class DrawerScreen extends StatelessWidget {
-  const DrawerScreen({Key? key}) : super(key: key);
+class ZoomDrawerScreen extends StatelessWidget {
+  const ZoomDrawerScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

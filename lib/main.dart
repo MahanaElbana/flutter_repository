@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_repository/core/components/app_theme.dart';
+import 'package:flutter_repository/core/components/route_page.dart';
 import 'package:flutter_repository/list_card_animation/list_card_animation.dart';
-import 'core/components/route_page.dart';
 
 void main() {
   runApp( const RepoFlutter());
@@ -20,7 +20,9 @@ class RepoFlutter extends StatelessWidget {
       theme: appThemeData ,
       initialRoute: Navigator.defaultRouteName,
       onGenerateRoute: (RouteSettings setting) =>
-          RoutePage.onRoutePage(setting),
+          AppRoutePage.onRoutePage(setting),
     );
   }
 }
+
+
