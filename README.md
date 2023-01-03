@@ -217,7 +217,9 @@ class _AnimatedMainScreenDrawerState extends State<AnimatedMainScreenDrawer> {
 }
 
 ```
+# ght
 
+```
   Widget buildBottomNavigation() => BottomNavigationBar(
         elevation: 0,
         unselectedItemColor: Colors.white54,
