@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_repository/core/widgets/custom_button.dart';
+import 'package:flutter_repository/core/components/navigator_route_button/custom_button.dart';
+import 'package:flutter_repository/core/components/navigator_route_button/navigation.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -30,8 +31,15 @@ class _HomeScreenState extends State<HomeScreen> {
           //   ...allAlgorithms(context)
           // ]
           
-         children: screenLists(context),
-
+          // children: screenLists(context),
+          children: [ 
+            // ============ the first method ===========//
+            ...screenLists(context),
+            ...screenListsOne(context),
+            // ============ the second method ===========//
+            // ============ the end  ===========//
+            
+            ],
       
         ),
       ),

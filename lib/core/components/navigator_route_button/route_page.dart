@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter_repository/core/constants/constant_strings.dart';
 import 'package:flutter_repository/views/zoom_drawer_ext_pack.dart';
 import 'package:flutter_repository/list_card_animation/list_card_animation.dart';
 import 'package:flutter_repository/list_card_animation/sub_list_card.dart';
 import 'package:flutter_repository/transform/transform_one.dart';
 
-import '../../home_screen.dart';
+import '../../../home_screen.dart';
 
 
+// ---------------------- the first step ----------------------//
+class AppScreenName{
+static const String homeSearch = '/homeSearch';
+static const String zoomDrawerScreen = '/zoomdrawerScreen';
+static const String  cardListAnimation = '/cardListAnimation';
+static const String  subCategories = '/subCategories';
+static const String transformOne = '/transformOne';
+}
+
+// ---------------------- the second step ----------------------//
 class AppRoutePage {
   static Route? onRoutePage(RouteSettings setting) {
     switch (setting.name) {
@@ -17,22 +25,22 @@ class AppRoutePage {
           builder: (_) => const HomeScreen(),
         );
 
-      case ScreenName.drawerScreen:
+      case AppScreenName.zoomDrawerScreen:
         return MaterialPageRoute(
           builder: (_) => const ZoomDrawerScreen(),
         );
 
-      case ScreenName.cardListAnimation:
+      case AppScreenName.cardListAnimation:
         return MaterialPageRoute(
           builder: (_) => const CardListAnimation(),
         );
 
-      case ScreenName.subCategories:
+      case AppScreenName.subCategories:
         return MaterialPageRoute(
           builder: (_) => const SubCategories(),
         );
 
-      case ScreenName.transformOne:
+      case AppScreenName.transformOne:
         return MaterialPageRoute(
           builder: (_) => const TransformOne(),
         );
