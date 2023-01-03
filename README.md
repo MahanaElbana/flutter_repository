@@ -72,7 +72,11 @@
                  AndroidManifest.xml
     ```
 
+## Github command to push the project 😄
 
+```
+git add . && git commit -m "the last commit" && git push
+```
 
 ### Upload flutter application on google play 😊
   1. the videos 
