@@ -83,5 +83,9 @@ List<ButtonNavigatorOne> screenListsOne(BuildContext context) {
       screenName: AppScreenName.zoomDrawerScreen,
     ),
     // -----------  AnimatedCircPopOutFloating ! ---------------//
+     const ButtonNavigatorOne(
+      textString: "custom Implict Or Tween Animation",
+      screenName: AppScreenName.customImplictOrTweenAnimation
+    ),
   ];
 }

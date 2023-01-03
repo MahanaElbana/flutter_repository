@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_repository/views/zoom_drawer_ext_pack.dart';
 import 'package:flutter_repository/list_card_animation/list_card_animation.dart';
 import 'package:flutter_repository/list_card_animation/sub_list_card.dart';
-import 'package:flutter_repository/transform/transform_one.dart';
+import 'package:flutter_repository/views/animation/custom_implict_animation_or_tween_animation.dart';
 
 import '../../../home_screen.dart';
 
@@ -13,7 +13,7 @@ static const String homeSearch = '/homeSearch';
 static const String zoomDrawerScreen = '/zoomdrawerScreen';
 static const String  cardListAnimation = '/cardListAnimation';
 static const String  subCategories = '/subCategories';
-static const String transformOne = '/transformOne';
+static const String customImplictOrTweenAnimation = '/CustomImplictOrTweenAnimation';
 }
 
 // ---------------------- the second step ----------------------//
@@ -40,9 +40,9 @@ class AppRoutePage {
           builder: (_) => const SubCategories(),
         );
 
-      case AppScreenName.transformOne:
+      case AppScreenName.customImplictOrTweenAnimation:
         return MaterialPageRoute(
-          builder: (_) => const TransformOne(),
+          builder: (_) => const CustomImplictOrTweenAnimation(),
         );
 
       default:
