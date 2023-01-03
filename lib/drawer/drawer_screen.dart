@@ -137,7 +137,6 @@ class _MainScreenDrawerState extends State<MainScreenDrawer> {
       appBar: AppBar(title: const Text('main screen'), actions: [
         IconButton(
             onPressed: () {
-
               //================= action =================//
               ZoomDrawer.of(context)!.toggle();
               //================= action =================//

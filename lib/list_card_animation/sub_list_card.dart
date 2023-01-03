@@ -113,12 +113,12 @@ class _LocationWidgetState extends State<LocationWidget> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                         const   SizedBox(
                             height: 8.0,
                           ),
                           Text(
                             allCategories[index]["mainCategory"],
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontFamily: FontsApp.fontFamily,
                                 fontWeight: FontWeight.w700),
                           ),

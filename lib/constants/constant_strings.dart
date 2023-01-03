@@ -10,5 +10,5 @@ static const String transformOne = '/transformOne';
 
 
 class FontsApp{
-  static const String fontFamily='NotoNaskhArabic';
+  static const String fontFamily = 'NotoNaskhArabic' ;
 }
