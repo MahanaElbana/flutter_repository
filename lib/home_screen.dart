@@ -3,7 +3,7 @@ import 'package:flutter_repository/core/widgets/custom_button.dart';
 
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -16,12 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       
       /// ==================== '''appBar''' =================///
-      appBar: AppBar(
-        title: const  Text("Route page"),
-        centerTitle: true,
-        backgroundColor:  Colors.amber,
-      ),
-
+      appBar: AppBar(title: const  Text("The main Page")),
       /// ==================== '''body''' =================///
       body: Container(
         margin: const EdgeInsets.only(top: 8.0),

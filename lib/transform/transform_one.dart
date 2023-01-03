@@ -26,7 +26,6 @@ class _TransformOneState extends State<TransformOne> {
           child: Column(
             children: [
               //=======  =========    ==================//
-            
                 GestureDetector(
                   onTap: (){
                     setState(() {

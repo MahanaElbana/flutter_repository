@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'dart:math';
 
-import 'package:flutter_repository/constants/constant_strings.dart';
+import 'package:flutter_repository/core/constants/constant_strings.dart';
 import 'package:flutter/gestures.dart';
 
 class CardListAnimation extends StatelessWidget {

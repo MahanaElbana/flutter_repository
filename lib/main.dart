@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_repository/core/components/app_theme.dart';
 import 'package:flutter_repository/list_card_animation/list_card_animation.dart';
-import 'components/route_page.dart';
+import 'core/components/route_page.dart';
 
 void main() {
   runApp( const RepoFlutter());
@@ -12,12 +13,11 @@ class RepoFlutter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-       scrollBehavior: AppScrollBehavior(),
+      // ---------- allow scrollable listView on desktop(liunx) -----//
+      scrollBehavior: AppScrollBehavior(),
+
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Algorithms AndWidgets',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: appThemeData ,
       initialRoute: Navigator.defaultRouteName,
       onGenerateRoute: (RouteSettings setting) =>
           RoutePage.onRoutePage(setting),

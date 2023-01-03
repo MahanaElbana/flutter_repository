@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_repository/constants/constant_strings.dart';
+import 'package:flutter_repository/core/constants/constant_strings.dart';
 
 class SubCategories extends StatelessWidget {
   const SubCategories({Key? key}) : super(key: key);
