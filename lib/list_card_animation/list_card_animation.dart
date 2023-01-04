@@ -119,7 +119,7 @@ class _TransformPageViewWidgetState extends State<TransformPageViewWidget> {
             child: GestureDetector(
               //=============== function to toggle sub categories ================//
               onTap: () {
-                print(pageItems[index].title);
+              //  print(pageItems[index].title);
               },
               //=============== function to toggle sub categories ================//
               child: Card(

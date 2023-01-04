@@ -21,9 +21,9 @@ class SubCategories extends StatelessWidget {
               icon: const CircleAvatar(
                   radius: 50,
                   backgroundColor: Colors.white,
-                  child: const Icon(
+                  child:  Icon(
                     Icons.contact_support,
-                    color: const Color(0xFF041C32),
+                    color:  Color(0xFF041C32),
                   )),
               onPressed: () {},
             ),
@@ -89,7 +89,7 @@ class _LocationWidgetState extends State<LocationWidget> {
                   itemCount: allCategories.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
-                      padding: EdgeInsets.only(left: 15.0),
+                      padding: const EdgeInsets.only(left: 15.0),
                       child: Column(
                         children: [
                           GestureDetector(
@@ -516,12 +516,12 @@ class DetailedInfoWidget extends StatelessWidget {
               tag: HeroTag.addressLine1(location),
               child: Text(location.addressLine1),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             HeroWidget(
               tag: HeroTag.addressLine2(location),
               child: Text(location.addressLine2),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             HeroWidget(
               tag: HeroTag.stars(location),
               child: StarsWidget(stars: location.starRating),
@@ -550,16 +550,16 @@ class DetailPage extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
-          title: Text('INTERESTS'),
+          title: const Text('INTERESTS'),
           centerTitle: true,
           actions: [
-            IconButton(
-              icon: Icon(Icons.close),
+             IconButton(
+              icon:const Icon(Icons.close),
               onPressed: Navigator.of(context).pop,
             ),
-            SizedBox(width: 10)
+           const SizedBox(width: 10)
           ],
-          leading: Icon(Icons.search_outlined),
+          leading: const Icon(Icons.search_outlined),
         ),
         body: Column(
           children: [
@@ -604,8 +604,8 @@ class ReviewsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ListView.separated(
       itemCount: location.reviews.length,
-      padding: EdgeInsets.all(16),
-      separatorBuilder: (context, index) => Divider(),
+      padding: const EdgeInsets.all(16),
+      separatorBuilder: (context, index) => const Divider(),
       itemBuilder: (context, index) {
         final review = location.reviews[index];
 
@@ -614,7 +614,7 @@ class ReviewsWidget extends StatelessWidget {
           builder: (context, child) => FadeTransition(
             opacity: CurvedAnimation(
               parent: animation,
-              curve: Interval(0.2, 1, curve: Curves.easeInExpo),
+              curve:const Interval(0.2, 1, curve: Curves.easeInExpo),
             ),
             child: child,
           ),
@@ -640,20 +640,20 @@ class ReviewsWidget extends StatelessWidget {
                 ),
                 Text(
                   review.username,
-                  style: TextStyle(fontSize: 17),
+                  style: const TextStyle(fontSize: 17),
                 ),
-                SizedBox(),
+               const SizedBox(),
                 Text(
                   review.date,
-                  style: TextStyle(fontStyle: FontStyle.italic),
+                  style: const TextStyle(fontStyle: FontStyle.italic),
                 ),
-                Icon(Icons.thumb_up_alt_outlined, size: 14)
+                const Icon(Icons.thumb_up_alt_outlined, size: 14)
               ],
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               review.description,
-              style: TextStyle(color: Colors.black54),
+              style: const TextStyle(color: Colors.black54),
             ),
           ],
         ),

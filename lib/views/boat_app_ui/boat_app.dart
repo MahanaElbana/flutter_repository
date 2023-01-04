@@ -63,7 +63,7 @@ class _BoatUiScreenState extends State<BoatUiScreen> {
                   double rotation = percentage.clamp(0.0, 1.0);
                   var fixRotation = pow(rotation, 0.35);
                   if (index == 1) {
-                    print(rotation);
+                   // print(rotation);
                   }
                   return Opacity(
                     opacity: 1 - rotation,
@@ -75,7 +75,7 @@ class _BoatUiScreenState extends State<BoatUiScreen> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              print(index);
+                             // print(index);
                             },
                             child: Center(
                               child: Transform(
