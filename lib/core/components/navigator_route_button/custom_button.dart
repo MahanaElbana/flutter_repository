@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_repository/core/components/navigator_route_button/app_navigator_functions.dart';
 import 'package:flutter_repository/views/animated_circ_pop_out_floating.dart';
 import 'package:flutter_repository/views/animated_drawer.dart';
+import 'package:flutter_repository/views/boat_app_ui/boat_app.dart';
 import 'package:flutter_repository/views/circlura_floating_pop_out_menu.dart';
 import 'package:flutter_repository/views/floating_pop_out_menu.dart';
 import 'package:flutter_repository/views/notification_listener_with_listview.dart';
@@ -138,6 +139,18 @@ List<CustomButton> screenLists(BuildContext context) {
             context, const AnimatedCircPopOutFloating());
       },
       forgroundString: " AnimatedCircPopOutFloating !",
+      iconData: Icons.widgets_outlined,
+    ),
+
+      // -----------  AnimatedCircPopOutFloating ! ---------------//
+
+    CustomButton(
+      backGroundColor: Colors.primaries[6],
+      onPressed: () {
+        AppNavigatorFunctions.defaultPush(
+            context, const BoatUiScreen());
+      },
+      forgroundString: " BoatUiScreen !",
       iconData: Icons.widgets_outlined,
     ),
 

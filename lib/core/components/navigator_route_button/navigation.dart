@@ -87,5 +87,6 @@ List<ButtonNavigatorOne> screenListsOne(BuildContext context) {
       textString: "custom Implict Or Tween Animation",
       screenName: AppScreenName.customImplictOrTweenAnimation
     ),
+    
   ];
 }
