@@ -22,7 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Container(
         margin: const EdgeInsets.only(top: 8.0),
         alignment: Alignment.topCenter,
-        // child: SingleChildScrollView(
+         child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           // children: <Widget>[
@@ -40,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // ============ the end  ===========//
             
             ],
-      
+        )
         ),
       ),
 

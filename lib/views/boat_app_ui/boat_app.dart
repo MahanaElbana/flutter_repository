@@ -81,7 +81,7 @@ class _BoatUiScreenState extends State<BoatUiScreen> {
                               child: Transform(
                                 alignment: Alignment.centerLeft,
                                 transform: Matrix4.identity()
-                                  ..setEntry(3, 2, 0.002)
+                                  ..setEntry(3, 2, 0.001)
                                   ..rotateY(1.8 * fixRotation)
                                   ..translate(-rotation * size.width * 0.5)
                                   ..scale(1 + rotation * 0.5),

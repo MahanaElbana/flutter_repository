@@ -5,6 +5,7 @@ import 'package:flutter_repository/views/animated_drawer.dart';
 import 'package:flutter_repository/views/boat_app_ui/boat_app.dart';
 import 'package:flutter_repository/views/circlura_floating_pop_out_menu.dart';
 import 'package:flutter_repository/views/floating_pop_out_menu.dart';
+import 'package:flutter_repository/views/listview_with_page_view_transformed.dart';
 import 'package:flutter_repository/views/notification_listener_with_listview.dart';
 import 'package:flutter_repository/views/profile_in_app_bar.dart';
 import 'package:flutter_repository/views/transformed_card.dart';
@@ -155,5 +156,15 @@ List<CustomButton> screenLists(BuildContext context) {
     ),
 
     // -----------  AnimatedCircPopOutFloating ! ---------------//
+  
+     CustomButton(
+      backGroundColor: Colors.primaries[6],
+      onPressed: () {
+        AppNavigatorFunctions.defaultPush(
+            context, const ListViewWithPageViewTransformed());
+      },
+      forgroundString: "PageView & Transform for ListView !",
+      iconData: Icons.widgets_outlined,
+    ),
   ];
 }
