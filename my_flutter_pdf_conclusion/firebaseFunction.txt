@@ -1,0 +1,154 @@
+//cbmbbmj@gmail.com  
+//////       getData1            /////
+  getData1() async {
+    CollectionReference user = FirebaseFirestore.instance.collection("user");
+    QuerySnapshot querySnapshot = await user.get();
+    List<QueryDocumentSnapshot> documents = querySnapshot.docs;
+    documents.forEach((element) {
+      print(element.data());
+    });
+  }
+
+  //////       getData2           /////
+  getData2() async {
+    FirebaseFirestore.instance
+        .collection("user")
+        .get()
+        .then((QuerySnapshot querySnashot) {
+      querySnashot.docs.forEach((element) {
+        print(element.data());
+      });
+    });
+  }
+
+  //////       getData3            /////
+  getData3() {
+    FirebaseFirestore.instance
+        .collection("user")
+        .doc("P5slRxinrFDxGZIGXq3u")
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
+      print(documentSnapshot.data());
+    });
+  }
+
+  getFilteredData() async {
+    CollectionReference userRef = FirebaseFirestore.instance.collection("user");
+    print("==" * 20);
+    QuerySnapshot querySnapshot =
+        await userRef.where("username", isEqualTo: "mahney").get();
+    List<DocumentSnapshot> documents = querySnapshot.docs;
+    documents.forEach((DocumentSnapshot documentSnapshot) {
+      print(documentSnapshot.data());
+    });
+    print("==" * 30);
+    userRef
+        .where("age", whereIn: ["20", "23"])
+        .get()
+        .then((QuerySnapshot querySnapshot) {
+          querySnapshot.docs.forEach((DocumentSnapshot documentSnapshot) {
+            print(documentSnapshot.get("username"));
+          });
+        });
+
+    userRef
+        .where("language", arrayContains: ["ar"])
+        .where("age", isGreaterThan: 19)
+        .get()
+        .then((QuerySnapshot querySnapshot) {
+          querySnapshot.docs.forEach((DocumentSnapshot documentSnapshot) {
+            print(documentSnapshot.get("username"));
+            print("==" * 30);
+          });
+        });
+  }
+
+  funData() {
+    FirebaseFirestore.instance
+        .collection("user")
+        .where("age", isGreaterThan: 12)
+        .orderBy("age", descending: false)
+        .endBefore([22])
+        .get()
+        .then((value) {
+          value.docs.forEach((element) {
+            print(element.data());
+            print("object" * 15);
+          });
+        });
+  }
+
+  dataStream() {
+    // snapshots ==> stream ==> with listen() ==> realtimeDatabase
+    // get() ==> Future ==> with then ==> no realtimeDatabase
+    FirebaseFirestore.instance.collection("user").snapshots().listen((event) {
+      event.docs.forEach((element) {
+        print("user name == ${element.data()["username"]}");
+        print("user age == ${element.data()["age"]}");
+        print("user email == ${element.data()["email"]}");
+        print("===" * 15);
+      });
+    });
+  }
+
+  ///// add documents
+  addDocument1() {
+    FirebaseFirestore.instance.collection("user").doc("12fjfk12fgg").set({
+      "username": "maher",
+      "age": 30,
+      "phone": "01258963",
+      "language": ["ar", "gr"]
+    });
+  }
+
+  addDocument2() {
+    FirebaseFirestore.instance.collection("user").add({
+      "username": "abrahem",
+      "age": 23,
+      "phone": "012585963",
+      "language": ["fr", "tu"]
+    }).then((value) {
+      // document
+      value.get().then((DocumentSnapshot value) => print(value.data()));
+    }).catchError((e) {
+      print("an error");
+    });
+  }
+
+  //////////////////////// update
+  updateDocuments1() {
+    //update ==> i can add new fields
+    // update ==> if idDocument is not exist ==>update give error
+    FirebaseFirestore.instance
+        .collection("user")
+        .doc("P5slRxinrFDxGZIGXq3u")
+        .update({
+      "car": 3,
+      "language": ["ar", "gr", "en", "fr", "bn"]
+    });
+  }
+
+  updateDocuments2() {
+    //set with  SetOptions(merge: true) ==>  save old field
+    // set ==> i can add new fields
+    // set ==> if idDocument is not exist ==>set add new document
+    FirebaseFirestore.instance
+        .collection("user")
+        .doc("JIYGDb08aScvzBrmuDNI")
+        .set({"username": "aboAli", "car": 2}, SetOptions(merge: true));
+  }
+
+  //////////////////  DELETE  and nested Collection/////
+  deleteDocuments() {
+    CollectionReference reference = FirebaseFirestore.instance
+        .collection("user")
+        .doc("P5slRxinrFDxGZIGXq3u")
+        .collection("address");
+    reference
+        .doc("wFcjllldFvJILkFrTSLa")
+        .delete()
+        .then((value) => print("okay"))
+        .catchError((e) {
+      print("an error");
+    });
+  }

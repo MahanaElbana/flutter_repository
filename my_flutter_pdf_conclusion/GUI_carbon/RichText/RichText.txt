@@ -1,0 +1,20 @@
+RichText richText() {
+    return RichText(
+      text: TextSpan(
+        children: <TextSpan>[
+          TextSpan(
+            text: "Mahney ",
+            style: TextStyle(color: Color(0xff452162)),
+          ),
+          TextSpan(
+            text: "Mohsen ",
+            style: TextStyle(color: Color(0xff789451)),
+          ),
+          TextSpan(
+            text: "Mohamed ",
+            style: TextStyle(color: Color(0xffff3971)),
+          ),
+        ],
+      ),
+    );
+  }

@@ -1,0 +1,138 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+//import 'package:get_storage/get_storage.dart';
+
+void main() {
+  runApp(App());
+}
+
+class SliderController extends GetxController {
+  ///////////////////    Slider 1 ----------------------
+  RxDouble slider1 = 10.0.obs;
+
+  void setValue1(double value) {
+    ///  slider.value ==  double value
+    slider1.value = value;
+  }
+
+  ///////////////////    Slider 2 ----------------------
+  RxDouble slider2 = 10.0.obs;
+
+  void setValue2(double value) {
+    slider2.value = value;
+  }
+
+  ///////////////////    Slider 3 --------------------
+  double _slider3 = 10.0;
+  double get slider3 => _slider3;
+  void setValue3(double value) {
+    _slider3 = value;
+    update();
+  }
+
+  ///////////////////    Slider 4 ----------------------
+  RxDouble slider4 = 10.0.obs;
+
+  void setValue4(double value) {
+    slider4.value = value;
+  }
+}
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    ////---------- 1- instance /////
+    final sliderController = Get.put(SliderController());
+
+    return GetMaterialApp(
+      darkTheme: ThemeData(accentColor: Colors.amber),
+      theme: ThemeData(accentColor: Colors.orange),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Theme using [get_storage]"),
+          centerTitle: true,
+        ),
+        body: Column(
+          children: [
+            ///////////////// Slider1 with First Method ----------------------
+            Obx(
+              () => Slider(
+                // ----  value: themeController.slider1.value ==> double value
+                value: sliderController.slider1.value,
+                max: 150.0,
+                min: 10.0,
+                onChanged: (value) => sliderController.setValue1(value),
+                label: "value : ${sliderController.slider1.value.toString()}",
+              ),
+            ),
+            Obx(() =>
+                Text("value : ${sliderController.slider1.value.toString()}")),
+            ///////////////// Slider2 with second method ----------------------
+            ObxValue<RxDouble>(
+              (themeControllerSlider1) => Slider(
+                value: themeControllerSlider1.value,
+                onChanged: (value) => sliderController.setValue2(value),
+                max: 150.0,
+                min: 10.0,
+                activeColor: Colors.pink,
+                inactiveColor: Colors.red,
+                divisions: 1000,
+                label: "hello : ${sliderController.slider2.value}",
+              ),
+              sliderController.slider2,
+            ),
+            ///////////////// Slider3 with third method ----------------------
+            GetBuilder<SliderController>(
+              builder: (_) {
+                return Slider(
+                  value: sliderController.slider3,
+                  onChanged: (value) => sliderController.setValue3(value),
+                  max: 150.0,
+                  min: 10.0,
+                  divisions: 1000,
+                  label: "hi : ${sliderController.slider3}",
+                );
+              },
+            ),
+            ///////////////// Slider4 with fourth method ----------------------
+            GetX<SliderController>(
+              //init: themeController,
+              //----------- underscore to show that the parameter will not be used. -------------//
+              builder: (_) {
+                return Slider(
+                  value: sliderController.slider4.value,
+                  onChanged: (value) => sliderController.setValue4(value),
+                  max: 150.0,
+                  min: 10.0,
+                  divisions: 1000,
+                  label: "hi : ${sliderController.slider4}",
+                  activeColor: Colors.purple,
+                );
+              },
+            ),
+            /////////////// ValueBuilder ==>instead of setStet() ////////////
+
+            /////////////// ValueBuilder ==> fith method slider ////////////
+            ValueBuilder<double>(
+              initialValue: 0.0,
+              builder: (double? sliderValue, update) {
+                return Slider(
+                  max: 150.0,
+                  min: 0.0,
+                  divisions: 1000,
+                  label: "fifth method :$sliderValue ",
+                  value: sliderValue ?? 0.0,
+                  onChanged: (newValue) => update(newValue),
+                );
+              },
+            ),
+
+            /////////////// ValueBuilder ==> fith method slider ////////////
+          ],
+        ),
+      ),
+    );
+  }
+}

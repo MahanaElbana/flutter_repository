@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+
+
+
+class HomePage extends StatelessWidget {
+  ////// ------------  ---------  showDialogFunc ---------   ---------    //////
+  void showDialogFunc(BuildContext context) {
+    ////// ------------  ---------  AlertDialog
+    final alertDialog = AlertDialog(
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text("Close"),
+          )
+        ],
+      ),
+      title: Text("Error !"),
+    );
+    //////  ------------  --------- showDialog
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      barrierColor: Colors.yellow.withOpacity(0.9),
+      barrierLabel: " unused area",
+      builder: (context) {
+        return alertDialog;
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        child: TextButton(
+          child: Text("hi -- "),
+          onPressed: () {
+            showDialogFunc(context);
+          },
+        ),
+      ),
+    );
+  }
+}

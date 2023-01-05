@@ -1,0 +1,221 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_pro/pages/home_page.dart';
+
+import 'package:flutter_pro/widget/reusable_text.dart';
+
+class Challenge5 extends StatefulWidget {
+  @override
+  _Challenge5State createState() => _Challenge5State();
+}
+
+class _Challenge5State extends State<Challenge5> {
+  void navigatorFunc() {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (_) => HomePage()),
+    );
+  }
+
+  List<String> names = [
+    "mahney",
+    "ali",
+    "ahmed",
+    "ibrahem",
+    "ansery",
+    "yessaf",
+    "mamdoh",
+    "reham",
+    "habna",
+    "hebe",
+    "wassem",
+    "mahney",
+    "ali",
+    "ahmed",
+    "ibrahem",
+    "ansery",
+    "yessaf",
+    "mamdoh",
+    "reham",
+    "habna",
+    "hebe",
+    "wassem",
+    "mahney",
+    "ali",
+    "ahmed",
+    "ibrahem",
+    "ansery",
+    "yessaf",
+    "mamdoh",
+    "reham",
+    "haba",
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    var widthSize = MediaQuery.of(context).size.width * 0.8;
+
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () => navigatorFunc(),
+          icon: Icon(Icons.arrow_back),
+        ),
+        centerTitle: true,
+        title: ReusableText(
+          strText: "wheel list view !",
+          color: Colors.black,
+          fontWeight: FontWeight.w500,
+          fontSize: 25.0,
+        ),
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        child: ListView.separated(
+          physics: BouncingScrollPhysics(),
+          separatorBuilder: (__, _) => Padding(
+            padding: EdgeInsets.symmetric(horizontal: 40.0),
+            child: Divider(),
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            var item = names[index];
+            return Dismissible(
+              key: Key("$item $index"),
+
+              //! ------------    onDismissed   -------------
+              onDismissed: (DismissDirection direction) {
+                setState(() {
+                  names.removeAt(index);
+                });
+                SnackBar snackBar = new SnackBar(
+                  backgroundColor: Colors.black,
+                  content: Row(
+                    children: [
+                      Text(
+                        "item is deleted !",
+                        style: TextStyle(
+                            fontSize: 25.0,
+                            color: Colors.primaries[index % 16]),
+                      ),
+                      Text(
+                        "number of items ${names.length} !",
+                        style: TextStyle(fontSize: 25.0, color: Colors.blue),
+                      ),
+                    ],
+                  ),
+                );
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              },
+      //! ---- confirmDismiss ==> (onDismissed) تاكيد هل يتم تنفيذ   -----
+              confirmDismiss: (DismissDirection direction) async {
+                final bool resp = await showDialog(
+                  //! /--------- is important
+                  barrierDismissible: false,
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    // --- is better used ==> actions: [],
+                    content: Container(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "is you want dalete item !",
+                            style: TextStyle(fontSize: 25.0),
+                          ),
+                          SizedBox(height: 25.0,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              TextButton(
+                                child: Container(
+                                  color: Colors.deepOrange,
+                                  height: 60.0,
+                                  width: 100.0,
+                                  child: Center(
+                                    child: Text("delete",style: TextStyle(
+                                    fontSize: 22.0 ,color: Colors.black),),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  Navigator.of(context).pop(true);
+                                },
+                              ),
+                              SizedBox(
+                                width: 25.0,
+                              ),
+                              TextButton(
+                                child: Container(
+                                  color: Colors.deepOrange,
+                                  height: 60.0,
+                                  width: 100.0,
+                                  child: Center(
+                                    child: Text("cancel",style: TextStyle(
+                                    fontSize: 22.0 ,color: Colors.black),),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  Navigator.of(context).pop(false);
+                                },
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+                //* /--- true ==> means to execute (onDismissed)
+                //* /--- false ==> means to do not execute (onDismissed)
+                print(resp);
+                return resp;
+              },
+              //! ---- ---- -----  background-----//
+              background: Container(
+                padding: EdgeInsets.only(left: 20.0),
+                alignment: Alignment.centerLeft,
+                child: Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                  size: 40.0,
+                ),
+                color: Colors.black,
+              ),
+                //! ---- ---- -----  secondaryBackground-----//  
+               secondaryBackground: Container(
+                padding: EdgeInsets.only(left: 20.0),
+                alignment: Alignment.centerLeft,
+                child: Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                  size: 40.0,
+                ),
+                color: Colors.green,
+              ),
+              //! ---- ---- -----  child-----//
+              child: Center(
+                child: Container(
+                  margin: EdgeInsets.all(20.0),
+                  height: 90.0,
+                  width: widthSize,
+                  child: Center(child: Text(item)),
+                  decoration: BoxDecoration(
+                    color: Colors.primaries[index % 16],
+                    borderRadius: BorderRadius.circular(25.0),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                        blurRadius: 15.0,
+                        color: Colors.primaries[index % 16],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              //! /-----////
+            );
+          },
+          itemCount: names.length,
+        ),
+      ),
+    );
+  }
+}
+
