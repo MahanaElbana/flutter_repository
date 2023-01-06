@@ -136,7 +136,7 @@ class _AnimatedOnBoardingScreenState extends State<AnimatedOnBoardingScreen> {
                           color: Colors.green,
                           width: screenSize.width * 0.8,
                           height: screenHeight * 0.55,
-                          child: Image.asset('assets/images/work1.jpg',
+                          child: Image.asset('assets/images/work1.png',
                               fit: BoxFit.cover),
                         ),
                       ],

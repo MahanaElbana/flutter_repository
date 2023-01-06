@@ -30,7 +30,7 @@ flutter:
   assets:
     - assets/images/logo.png
     - assets/images/work.jpg
-    - assets/images/work1.jpg
+    - assets/images/work1.png
     - assets/images/card_images/
 
   # fonts:
