@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_repository/core/components/navigator_route_button/app_navigator_functions.dart';
 import 'package:flutter_repository/views/animated_circ_pop_out_floating.dart';
 import 'package:flutter_repository/views/animated_drawer.dart';
+import 'package:flutter_repository/views/animated_on_boarding_screen.dart';
 import 'package:flutter_repository/views/boat_app_ui/boat_app.dart';
 import 'package:flutter_repository/views/circlura_floating_pop_out_menu.dart';
 import 'package:flutter_repository/views/floating_pop_out_menu.dart';
@@ -176,6 +177,17 @@ List<CustomButton> screenLists(BuildContext context) {
             context, const ValueListenableBuilderTransformPageView());
       },
       forgroundString: "ValueListenableBuilder Transform PageView !",
+      iconData: Icons.widgets_outlined,
+    ),
+        // ----------- TrialScreen AnimatedCircPopOutFloating ! ---------------//
+  
+     CustomButton(
+      backGroundColor: Colors.primaries[6],
+      onPressed: () {
+        AppNavigatorFunctions.defaultPush(
+            context, const AnimatedOnBoardingScreen());
+      },
+      forgroundString: "AnimatedOn BoardingScreen",
       iconData: Icons.widgets_outlined,
     ),
   ];

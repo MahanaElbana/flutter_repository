@@ -127,10 +127,10 @@ class OutlineButtonTrasition extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     // ignore: deprecated_member_use
-    return OutlineButton(
+    return TextButton(
       onPressed: () {},
       child: Text("custom explicit animation "),
-      borderSide: BorderSide(width: width.value * 5),
+      //borderSide: BorderSide(width: width.value * 5),
     );
   }
 }
