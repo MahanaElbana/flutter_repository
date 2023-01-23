@@ -6,6 +6,7 @@ import 'package:flutter_repository/views/animated_on_boarding_screen.dart';
 import 'package:flutter_repository/views/boat_app_ui/boat_app.dart';
 import 'package:flutter_repository/views/circlura_floating_pop_out_menu.dart';
 import 'package:flutter_repository/views/floating_pop_out_menu.dart';
+import 'package:flutter_repository/views/list_view_grid_view_animation.dart';
 import 'package:flutter_repository/views/listview_with_page_view_transformed.dart';
 import 'package:flutter_repository/views/notification_listener_with_listview.dart';
 import 'package:flutter_repository/views/profile_in_app_bar.dart';
@@ -160,7 +161,7 @@ List<CustomButton> screenLists(BuildContext context) {
     // ----------- TrialScreen AnimatedCircPopOutFloating ! ---------------//
   
      CustomButton(
-      backGroundColor: Colors.primaries[6],
+      backGroundColor: Colors.primaries[7],
       onPressed: () {
         AppNavigatorFunctions.defaultPush(
             context, const ListViewWithPageViewTransformed());
@@ -171,7 +172,7 @@ List<CustomButton> screenLists(BuildContext context) {
       // ----------- TrialScreen AnimatedCircPopOutFloating ! ---------------//
   
      CustomButton(
-      backGroundColor: Colors.primaries[6],
+      backGroundColor: Colors.primaries[8],
       onPressed: () {
         AppNavigatorFunctions.defaultPush(
             context, const ValueListenableBuilderTransformPageView());
@@ -182,13 +183,24 @@ List<CustomButton> screenLists(BuildContext context) {
         // ----------- TrialScreen AnimatedCircPopOutFloating ! ---------------//
   
      CustomButton(
-      backGroundColor: Colors.primaries[6],
+      backGroundColor: Colors.primaries[9],
       onPressed: () {
         AppNavigatorFunctions.defaultPush(
             context, const AnimatedOnBoardingScreen());
       },
       forgroundString: "AnimatedOn BoardingScreen",
       iconData: Icons.widgets_outlined,
+    ),
+           // ----------- ListViewGridViewAnimation ---------------//
+  
+     CustomButton(
+      backGroundColor: Colors.primaries[10],
+      onPressed: () {
+        AppNavigatorFunctions.defaultPush(
+            context, const ListViewGridViewAnimation());
+      },
+      forgroundString: "ListViewGridViewAnimation",
+      iconData: Icons.local_fire_department_outlined,
     ),
   ];
 }

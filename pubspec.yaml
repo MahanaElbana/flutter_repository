@@ -32,6 +32,7 @@ flutter:
     - assets/images/work.jpg
     - assets/images/work1.png
     - assets/images/card_images/
+    - assets/images/grid_list_switch/
 
   # fonts:
   fonts:

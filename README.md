@@ -291,3 +291,33 @@ class RoutePage {
   }
 }
 ```
+
+```dart
+ PopupMenuButton<int>(
+            initialValue: view,
+            onSelected: (int index) {
+              if (view != index) {
+                view = index;
+              }
+              Navigator.of(context).pushReplacement(
+                  _createRoute(const ListViewGridViewAnimation()));
+            },
+            itemBuilder: (BuildContext context) {
+              return <PopupMenuEntry<int>>[
+                const PopupMenuItem<int>(
+                  value: 1,
+                  child: Text('Switch to GridView'),
+                ),
+                const PopupMenuDivider(),
+                const PopupMenuItem<int>(
+                  value: 2,
+                  child: Text('Switch to ListView'),
+                ),
+                const PopupMenuDivider(),
+              ];
+            },
+          ),
+        ],
+        elevation: 0.0,
+      ),
+```
