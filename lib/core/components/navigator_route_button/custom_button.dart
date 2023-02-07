@@ -3,12 +3,16 @@ import 'package:flutter_repository/core/components/navigator_route_button/app_na
 import 'package:flutter_repository/views/animated_circ_pop_out_floating.dart';
 import 'package:flutter_repository/views/animated_drawer.dart';
 import 'package:flutter_repository/views/animated_on_boarding_screen.dart';
+import 'package:flutter_repository/views/animation/loading_animation.dart';
+import 'package:flutter_repository/views/animation_view_first.dart';
 import 'package:flutter_repository/views/boat_app_ui/boat_app.dart';
 import 'package:flutter_repository/views/circlura_floating_pop_out_menu.dart';
 import 'package:flutter_repository/views/floating_pop_out_menu.dart';
+import 'package:flutter_repository/views/flutter_animated_list_view.dart';
 import 'package:flutter_repository/views/list_view_grid_view_animation.dart';
 import 'package:flutter_repository/views/listview_with_page_view_transformed.dart';
 import 'package:flutter_repository/views/notification_listener_with_listview.dart';
+import 'package:flutter_repository/views/onboarding_flutter_challenge.dart';
 import 'package:flutter_repository/views/profile_in_app_bar.dart';
 import 'package:flutter_repository/views/transformed_card.dart';
 import 'package:flutter_repository/views/value_listenable_builder_transform_page_view.dart';
@@ -191,7 +195,7 @@ List<CustomButton> screenLists(BuildContext context) {
       forgroundString: "AnimatedOn BoardingScreen",
       iconData: Icons.widgets_outlined,
     ),
-           // ----------- ListViewGridViewAnimation ---------------//
+           // ----------- ListViewGridViewAnimation --CardsMostionAnimation--AnimatedLoading-----------//
   
      CustomButton(
       backGroundColor: Colors.primaries[10],
@@ -200,6 +204,66 @@ List<CustomButton> screenLists(BuildContext context) {
             context, const ListViewGridViewAnimation());
       },
       forgroundString: "ListViewGridViewAnimation",
+      iconData: Icons.local_fire_department_outlined,
+    ),
+    //////////////////////////////////////////////////////////
+     CustomButton(
+      backGroundColor: Colors.primaries[11],
+      onPressed: () {
+        AppNavigatorFunctions.defaultPush(
+            context, const AnimatedLoading());
+      },
+      forgroundString: "AnimatedLoading",
+      iconData: Icons.local_fire_department_outlined,
+    ),
+       //////////////////AnimatedListPage////////////////////////////////////////
+     CustomButton(
+      backGroundColor: Colors.primaries[12],
+      onPressed: () {
+        AppNavigatorFunctions.defaultPush(
+            context, const CardsMostionAnimation());
+      },
+      forgroundString: "CardsMostionAnimation",
+      iconData: Icons.local_fire_department_outlined,
+    ),
+        ////////////////////////////AnimatedEnter//////////////////////////////
+     CustomButton(
+      backGroundColor: Colors.primaries[13],
+      onPressed: () {
+        AppNavigatorFunctions.defaultPush(
+            context, const AnimatedListPage());
+      },
+      forgroundString: "AnimatedListPage",
+      iconData: Icons.local_fire_department_outlined,
+    ),
+      ////////////////////////////AnimatedListViewkio//////////////////////////////
+     CustomButton(
+      backGroundColor: Colors.primaries[14],
+      onPressed: () {
+        AppNavigatorFunctions.defaultPush(
+            context,  AnimatedEnter());
+      },
+      forgroundString: "AnimatedEnter",
+      iconData: Icons.local_fire_department_outlined,
+    ),
+    ////////////
+      CustomButton(
+      backGroundColor: Colors.primaries[15],
+      onPressed: () {
+        AppNavigatorFunctions.defaultPush(
+            context,  AnimatedListViewkio());
+      },
+      forgroundString: "AnimatedListViewkio",
+      iconData: Icons.local_fire_department_outlined,
+    ),
+     ////////////
+      CustomButton(
+      backGroundColor: Colors.primaries[16],
+      onPressed: () {
+        AppNavigatorFunctions.defaultPush(
+            context,  OnboardingFlutterChallenge());
+      },
+      forgroundString: "OnboardingFlutterChallenge",
       iconData: Icons.local_fire_department_outlined,
     ),
   ];

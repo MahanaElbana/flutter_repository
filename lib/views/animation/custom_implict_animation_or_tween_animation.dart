@@ -35,7 +35,7 @@ class _TransformOneState extends State<CustomImplictOrTweenAnimation> {
                 height: 30,
               ),
 
-              //*8-*ddBn#R46b47 jklqtyur@gmail.com tabemik433@prolug.com======== ======== Transform ============= ========//
+              //======== ======== Transform ============= ========//
               Transform(
                 transform: Matrix4.identity()
                   ..setEntry(3, 2, 0.001)..rotateY(pi/5),
