@@ -30,21 +30,28 @@ class OnboardingFlutterChallenge extends StatefulWidget {
       _OnboardingFlutterChallengeState();
 }
 
-class _OnboardingFlutterChallengeState
-    extends State<OnboardingFlutterChallenge> {
+class _OnboardingFlutterChallengeState extends State<OnboardingFlutterChallenge>
+    with TickerProviderStateMixin {
+  late Animation<Offset> slideAnimation;
+  late AnimationController cardAnimationController;
+  @override
+  void initState() {
+    cardAnimationController = 
+    AnimationController(vsync: this , duration: Duration(seconds: 1));
+    super.initState();
+  }
+
   double indexCount = 1;
   void Count() {
-    if(indexCount == 3){
+    if (indexCount == 3) {
       setState(() {
-        indexCount = 1 ; 
+        indexCount = 1;
+      });
+    } else {
+      setState(() {
+        indexCount = indexCount + 1;
       });
     }
-    else{
-        setState(() {
-      indexCount = indexCount + 1;
-    });
-    }
-  
   }
 
   @override
@@ -61,40 +68,48 @@ class _OnboardingFlutterChallengeState
                   print("object");
                 },
               ),
-              const IconContainer(icon: Icons.temple_hindu, padding: 20.0),
-              const TextColumn(
-                title: "Welcome to Busble",
-                text:
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+
+              SizedBox(
+                height: 30,
               ),
-              // CardsStack()
-              NextPageButton(
-                onPressed: () {
-                  print("go to the Next Page");
-                },
+              // SizedBox(
+              //   height: 70,
+              //   width: 70,
+              //   child: CustomPaint(
+              //     painter: _OnboardingPageIndicatorPainter(
+              //         color: kWhite,
+              //         startAngle: pi * 0.9,
+              //         indicatorLength: indexCount * 2.0933333333),
+              //     child: Padding(
+              //       padding: const EdgeInsets.all(1.0),
+              //       child: NextPageButton(
+              //         onPressed: () {
+              //           // print("go to the Next Page");
+              //           Count();
+              //         },
+              //       ),
+              //     ),
+              //   ),
+              // ),
+
+              Expanded(
+                  child: Center(
+                      child: OnboardingPage(
+                darkCardChild: CommunityDarkCardContent(),
+                lightCardChild: CommunityLightCardContent(),
+                number: indexCount.toInt(),
+                textColumn: CommunityTextColumn(),
+              ))),
+
+              OnboardingPageIndicator(
+                currentPage: indexCount.toInt(),
+                child: NextPageButton(onPressed: () {
+                  Count();
+                }),
               ),
               SizedBox(
-                height: 130,
+                height: 50,
               ),
-              SizedBox(
-                height: 70,
-                width: 70,
-                child: CustomPaint(
-                  painter: _OnboardingPageIndicatorPainter(
-                      color: kWhite,
-                      startAngle: pi * 0.9,
-                      indicatorLength: indexCount),
-                  child: Padding(
-                    padding: const EdgeInsets.all(1.0),
-                    child: NextPageButton(
-                      onPressed: () {
-                        // print("go to the Next Page");
-                        Count();
-                      },
-                    ),
-                  ),
-                ),
-              )
             ],
           ),
         ),
@@ -311,7 +326,7 @@ class _OnboardingPageIndicatorPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 4.0;
 
-   //  print("size of shortestSide ${size.shortestSide}");
+    //  print("size of shortestSide ${size.shortestSide}");
     canvas.drawArc(
       Rect.fromCircle(
         center: Offset(
@@ -321,7 +336,8 @@ class _OnboardingPageIndicatorPainter extends CustomPainter {
         radius: (size.shortestSide + 12.0) / 2,
       ),
       startAngle,
-      indicatorLength * 2.0933333333,
+      // indicatorLength * 2.0933333333,
+      indicatorLength,
       false,
       paint,
     );
@@ -330,5 +346,145 @@ class _OnboardingPageIndicatorPainter extends CustomPainter {
   @override
   bool shouldRepaint(_OnboardingPageIndicatorPainter oldDelegate) {
     return color != oldDelegate.color || startAngle != oldDelegate.startAngle;
+  }
+}
+
+// ============== Onboardign Page Indicator  ======//
+class OnboardingPageIndicator extends StatelessWidget {
+  final int currentPage;
+  final Widget child;
+  const OnboardingPageIndicator({
+    super.key,
+    required this.currentPage,
+    required this.child,
+  });
+  Color _getPageIndicatorColor(int pageIndex) {
+    return currentPage > pageIndex ? kWhite : kWhite.withOpacity(0.25);
+  }
+
+  double get indicatorGap => pi / 12;
+  double get indicatorLength => pi / 3;
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      painter: _OnboardingPageIndicatorPainter(
+          color: _getPageIndicatorColor(0),
+          indicatorLength: indicatorLength * 1.89,
+          startAngle: (pi + 1.3) - (indicatorLength + indicatorGap)),
+      child: CustomPaint(
+        painter: _OnboardingPageIndicatorPainter(
+            color: _getPageIndicatorColor(1),
+            indicatorLength: indicatorLength * 1.89,
+            startAngle: (5 * indicatorLength)),
+        child: CustomPaint(
+          painter: _OnboardingPageIndicatorPainter(
+              color: _getPageIndicatorColor(2),
+              indicatorLength: indicatorLength * 1.89,
+              startAngle: (5 * indicatorLength + 0.8) +
+                  (indicatorLength + indicatorGap)),
+          child: child,
+        ),
+      ),
+    );
+  }
+}
+
+//========================= onboardingPage ===============//
+
+class OnboardingPage extends StatelessWidget {
+  final int number;
+  final Widget lightCardChild;
+  final Widget darkCardChild;
+  final Widget textColumn;
+  const OnboardingPage({
+    super.key,
+    required this.number,
+    required this.lightCardChild,
+    required this.darkCardChild,
+    required this.textColumn,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        CardsStack(
+            pageNumber: number,
+            lightCardChild: lightCardChild,
+            darkCardChild: darkCardChild),
+        SizedBox(
+          height: number % 2 == 1 ? 50.0 : 25.0,
+        ),
+        textColumn,
+      ],
+    );
+  }
+}
+
+//========================= CommunityDarkCardContent ===============//
+class CommunityDarkCardContent extends StatelessWidget {
+  const CommunityDarkCardContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: const [
+        Padding(
+          padding: EdgeInsets.only(top: kPaddingL),
+          child: Icon(
+            Icons.brush,
+            color: kWhite,
+            size: 32.0,
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(bottom: kPaddingL),
+          child: Icon(
+            Icons.camera_alt,
+            color: kWhite,
+            size: 32.0,
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: kPaddingL),
+          child: Icon(
+            Icons.straighten,
+            color: kWhite,
+            size: 32.0,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+//========================= CommunityDarkCardContent ===============//
+class CommunityLightCardContent extends StatelessWidget {
+  const CommunityLightCardContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: const [
+        IconContainer(icon: Icons.person, padding: kPaddingS),
+        IconContainer(icon: Icons.group, padding: kPaddingM),
+        IconContainer(icon: Icons.insert_emoticon, padding: kPaddingS),
+      ],
+    );
+  }
+}
+
+class CommunityTextColumn extends StatelessWidget {
+  const CommunityTextColumn({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextColumn(
+      title: "Community",
+      text:
+          "en the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type ",
+    );
   }
 }

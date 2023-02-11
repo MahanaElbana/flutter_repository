@@ -668,3 +668,5 @@ class CardsHorizontal extends StatelessWidget {
   }
 }
 ```
+
+# CustomCliper 

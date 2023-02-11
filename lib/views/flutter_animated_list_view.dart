@@ -285,7 +285,7 @@ class _AnimatedListViewkioState extends State<AnimatedListViewkio> {
                             _listKey.currentState!.insertItem(0);
                           });
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.add,
                           color: Colors.white,
                         )),

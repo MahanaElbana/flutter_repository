@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_repository/core/components/navigator_route_button/app_navigator_functions.dart';
+import 'package:flutter_repository/views/Cliper/screen/cliper_screen.dart';
 import 'package:flutter_repository/views/animated_circ_pop_out_floating.dart';
 import 'package:flutter_repository/views/animated_drawer.dart';
 import 'package:flutter_repository/views/animated_on_boarding_screen.dart';
@@ -251,20 +252,30 @@ List<CustomButton> screenLists(BuildContext context) {
       backGroundColor: Colors.primaries[15],
       onPressed: () {
         AppNavigatorFunctions.defaultPush(
-            context,  AnimatedListViewkio());
+            context, const AnimatedListViewkio());
       },
       forgroundString: "AnimatedListViewkio",
       iconData: Icons.local_fire_department_outlined,
     ),
-     ////////////
+     ////////////CliperScreen
       CustomButton(
       backGroundColor: Colors.primaries[16],
       onPressed: () {
         AppNavigatorFunctions.defaultPush(
-            context,  OnboardingFlutterChallenge());
+            context, const OnboardingFlutterChallenge());
       },
       forgroundString: "OnboardingFlutterChallenge",
       iconData: Icons.local_fire_department_outlined,
+    ),
+        ////////////CliperScreen
+      CustomButton(
+      backGroundColor: Colors.primaries[16],
+      onPressed: () {
+        AppNavigatorFunctions.defaultPush(
+            context,  const CliperScreen());
+      },
+      forgroundString: "CliperScreen",
+      iconData: Icons.adobe,
     ),
   ];
 }
