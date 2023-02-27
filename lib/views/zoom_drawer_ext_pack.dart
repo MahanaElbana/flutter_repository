@@ -67,7 +67,7 @@ class MenuScreenDrawer extends StatelessWidget {
                 title: const Text('واتساب',
                     style: TextStyle(color: Colors.black, fontSize: 22.0 ,fontFamily: 'NotoNaskhArabic')),
                 leading: Icon(
-                  Icons.whatsapp,
+                  Icons.chat_outlined,
                   color: Colors.greenAccent.shade700,
                 ),
               ),

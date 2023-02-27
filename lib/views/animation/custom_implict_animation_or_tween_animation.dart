@@ -37,8 +37,7 @@ class _TransformOneState extends State<CustomImplictOrTweenAnimation> {
 
               //======== ======== Transform ============= ========//
               Transform(
-                transform: Matrix4.identity()
-                  ..setEntry(3, 2, 0.001)..rotateY(pi/5),
+                transform: Matrix4.identity()..setEntry(3, 2, 0.001)..rotateY(pi/5),
                 child: Container(
                   decoration: BoxDecoration(
                       color: Colors.green,
