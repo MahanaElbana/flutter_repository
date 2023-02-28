@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_repository/views/animation_conclusion/code_based_animation/implicit/built_in_implicit_animation/task_on_animated_foo.dart';
 
 //
 class BuiltInImplicitAnimation extends StatefulWidget {
@@ -24,7 +25,7 @@ class _BuiltInImplicitAnimationState extends State<BuiltInImplicitAnimation> {
     return Scaffold(
       /// ------------------ [AppBar] --------------------//
       appBar: AppBar(
-        title:const Text(
+        title: const Text(
           "BuiltInImplicitAnimation",
           style: TextStyle(
             color: Colors.white,
@@ -49,10 +50,23 @@ class _BuiltInImplicitAnimationState extends State<BuiltInImplicitAnimation> {
               // ---------------- CustomAnimatedCrossFade ---------------------- //
               CustomAnimatedCrossFade(status: status),
               const SizedBox(height: 23.0),
-              
+
               // ---------------- ACTION BUTTON ---------------------- //
               CustomOutlinedButton(
+                forgroundString: 'Animate the widgets',
                 onPressed: toggleSelectionState,
+              ),
+              const SizedBox(height: 23.0),
+              // ---------------- ACTION BUTTON ---------------------- //
+              CustomOutlinedButton(
+                forgroundString: 'go to the task',
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const OnBoardingScreenTask(),
+                      ));
+                },
               ),
             ],
           ),
@@ -100,7 +114,7 @@ class CustomAnimatedOpacity extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedOpacity(
       opacity: status ? 1 : 0.2,
-      duration: const Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 1100),
       curve: Curves.easeInExpo,
       child: Container(
         height: 80,
@@ -170,9 +184,10 @@ class CustomAnimatedCrossFade extends StatelessWidget {
 
 class CustomOutlinedButton extends StatelessWidget {
   final VoidCallback onPressed;
+  final String forgroundString;
   const CustomOutlinedButton({
     super.key,
-    required this.onPressed,
+    required this.onPressed, required this.forgroundString,
   });
 
   @override
@@ -187,8 +202,8 @@ class CustomOutlinedButton extends StatelessWidget {
         shadowColor: Colors.blueGrey.shade300,
         side: const BorderSide(width: 1.5),
       ),
-      child: const Text(
-        "Animate the widgets",
+      child:  Text(
+        forgroundString,
         style: TextStyle(fontSize: 18.0),
       ),
     );

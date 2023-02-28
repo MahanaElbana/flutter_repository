@@ -33,12 +33,12 @@ class _SignUPState extends State<SignUP> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             ////////////    TextField     ////////////
             Container(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               width: MediaQuery.of(context).size.width,
               child: TextField(
                 /////    decoration: InputDecoration  /////
@@ -48,35 +48,35 @@ class _SignUPState extends State<SignUP> {
                   fillColor: Colors.purple,
                   /////////
                   hintText: "login in ",
-                  hintStyle: TextStyle(color: Colors.red),
+                  hintStyle: const TextStyle(color: Colors.red),
                   labelText: _labelText,
-                  labelStyle: TextStyle(color: Colors.red),
+                  labelStyle: const TextStyle(color: Colors.red),
                   ////  border  ==> start ///
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(18.0),
-                    borderSide: BorderSide(color: Colors.red, width: 3.0),
+                    borderSide: const BorderSide(color: Colors.red, width: 3.0),
                   ),
 
                   ////  border  ///
                   /////   enabledBorder enabled start shape////
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(18.0),
-                    borderSide: BorderSide(color: Colors.red, width: 3.0),
+                    borderSide: const BorderSide(color: Colors.red, width: 3.0),
                   ),
                   /////   enabledBorder ////
 
                   ////////   focusedBorder at writting  ////
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(18.0),
-                    borderSide: BorderSide(color: Colors.green, width: 4.0),
+                    borderSide: const BorderSide(color: Colors.green, width: 4.0),
                   ),
                   ////////   focusedBorder ////
 
                   suffixIcon: IconButton(
                     icon: enable
-                        ? Icon(Icons.visibility_off_outlined,
+                        ? const Icon(Icons.visibility_off_outlined,
                             color: Colors.grey)
-                        : Icon(Icons.visibility_outlined, color: Colors.yellow),
+                        : const Icon(Icons.visibility_outlined, color: Colors.yellow),
                     onPressed: togleObscure,
                   ),
                   prefixIcon: Icon(Icons.keyboard, color: Colors.red),
