@@ -5,6 +5,7 @@ import 'package:flutter_repository/views/animated_circ_pop_out_floating.dart';
 import 'package:flutter_repository/views/animated_drawer.dart';
 import 'package:flutter_repository/views/animated_on_boarding_screen.dart';
 import 'package:flutter_repository/views/animation/loading_animation.dart';
+import 'package:flutter_repository/views/animation_conclusion/code_based_animation/implicit/built_in_implicit_animation/built_in_implicit_animation.dart';
 import 'package:flutter_repository/views/animation_view_first.dart';
 import 'package:flutter_repository/views/boat_app_ui/boat_app.dart';
 import 'package:flutter_repository/views/circlura_floating_pop_out_menu.dart';
@@ -277,5 +278,17 @@ List<CustomButton> screenLists(BuildContext context) {
       forgroundString: "CliperScreen",
       iconData: Icons.adobe,
     ),
+     //===================== BuiltInImplicitAnimation
+ 
+      CustomButton(
+      backGroundColor: Colors.primaries[17],
+      onPressed: () {
+        AppNavigatorFunctions.defaultPush(
+            context,  const BuiltInImplicitAnimation());
+      },
+      forgroundString: "BuiltInImplicitAnimation",
+      iconData: Icons.adobe,
+    ),
+
   ];
 }

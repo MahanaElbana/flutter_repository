@@ -1,5 +1,10 @@
 # Flutter Repository 💚
 
+## Git && GITHUB 💙
+```
+git add . && git commit -m "YOUR COMMIT" && git pus 
+```
+
 ## Topics 🔭
 
  - Flutter common commands .
@@ -83,7 +88,7 @@ git add . && git commit -m "the last commit" && git push
     - [Flutter & Google Play Store](https://www.youtube.com/watch?v=_enL3bRiHVI)
 
   2. Go to Android Asset Studio to Launcher icon generator : 
-   [Launcher icon generator](https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html#foreground.type=clipart&foreground.clipart=android&foreground.space.trim=1&foreground.space.pad=0.25&foreColor=rgba(96%2C%20125%2C%20139%2C%200)&backColor=rgb(68%2C%20138%2C%20255)&crop=0&backgroundShape=circle&effects=none&name=ic_launcher) ☄️
+   [Launcher icon generator](https://rb.gy/xlu04h) ☄️
   
   3. Go to *flutter_project/pubspec.yaml* and add *log_forground.png* in assets ☄️
      ``` pubspec.yaml
@@ -149,6 +154,16 @@ git add . && git commit -m "the last commit" && git push
  - [rename](https://pub.dev/packages/rename) ☄️
  - [How to upload and publish the flutter App on the Google Play Store](https://youtu.be/_enL3bRiHVI) ☄️
 
+## Dart conclusion 🎯
+ - dart_conclusion/
+    - strings.dart
+
+## animation_conclusion 🙂
+  
+  - built-in implicit animation 
+    - such as the *AnimatedContainer* widget, 
+    - which is easy to handle and has a ready-made widget.
+ 
 
 ## screenShot
 ### File source code 
@@ -162,71 +177,6 @@ list_view_grid_view_animation.dart
 
 
 
-
-## Dart Strings 💚
- - A Dart string is a sequence of UTF 16 code units.
- - conclusion 
-  ```dart
-  // ignore_for_file: avoid_print
-  // dart dart_learn.dart
-
-
- void main() {
-  
-  
-  const String name = "Mahney Elbana";
-
-  // Function                                 // Output
-  // ========                                 //=======
-  print(name.length);                         // 13
-  print(name.isEmpty);                        // false
-  print(name.isNotEmpty);                     // true
-  print(name.runtimeType);                    // String
-  print(name.runtimeType == String);          // true
-  print(name.hashCode);                       // 1026251033
-  print(name.codeUnits);                      // [77, 97, 104, 110, 101, 121, 32, 69, 108, 98, 97, 110, 97]
-  
-  List<int> utf_16 = name.codeUnits;
-  print(String.fromCharCodes(utf_16));         // Mahney Elbana
-  print(String.fromCharCode(77));              // M
-  
-  print(name.toString());                      // Mahney Elbana
-  print(name.contains('a'));                   // true 
-  print(name.contains('h',3));                 // false
-  print(name.toUpperCase());                   // MAHNEY ELBANA
-  print(name.toLowerCase());                   // mahney elbana
-  print(name.startsWith('Mah'));               // true
-  print(name.endsWith('Elbana'));              // true
-  print(name.substring(1,5));                  // ahne
-  print(name.substring(3));                    // ney Elbana
-  print(name.padRight(name.length+2 ,'%'));    // Mahney Elbana%%:
-  print(name.padLeft(name.length+3 ,'&'));     // &&&Mahney Elbana:
-  print(name.split(' '));                      // [Mahney, Elbana
-  print(name.replaceAll('a', '-'));            // M-hney Elb-n-
-  print(name.replaceFirst('a', '\$'));         // M$hney Elbana
-  print(name.replaceRange(2, 8, '#-'*3));      // Ma#-#-#-lbana
-  print(name.replaceFirstMapped(
-      'Elbana', (match) => "is first name"));  // Mahney is first name
-  print(name.replaceAllMapped(
-      'a', (match) => "@"));                   // M@hney Elb@n@
-  print(name.compareTo('Mahney Elbana'));      // 0  ==> equivalent
-  print(name.compareTo('fName is Mahney'));    // -1 ==> before
-  print(name.compareTo('LastName is Elbana')); // 1  ==> after
-
-  print(name.codeUnitAt(1));                   // 97
-  print(name.indexOf('E'));                    // 7
-  print(name.indexOf('d'));                    // -1
-  print(name.indexOf('a'));                    // 1
-  print(name.lastIndexOf('a'));                // 12
- 
-  String lastName = '  Elbana  ' ; 
-  print("lastname${lastName.trimRight()}:");   // lastname  Elbana:
-  print("lastname${lastName.trimLeft()}:");    // lastnameElbana  :
-  
-
-}
-
-  ``` 
 
 ![dartStrings](screen_shot/string_function.png)
 
