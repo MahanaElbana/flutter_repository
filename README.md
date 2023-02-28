@@ -110,7 +110,7 @@ git add . && git commit -m "the last commit" && git push
      flutter pub get
      flutter pub run flutter_launcher_icons
      ```  
-  5. Go to (Flutter Launcher Icons)[https://pub.dev/packages/flutter_launcher_icons] ☄️
+  5. Go to [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons) ☄️
   
   6. Go to the following link : [Build and release an Android app](https://docs.flutter.dev/deployment/android) ☄️
      
@@ -123,30 +123,29 @@ git add . && git commit -m "the last commit" && git push
                 - **upload-keystore.jks**
 
   9.  Create file with name **key.properties** in the following path ☄️
-    - **android**
-       - **key.properties** 
+       - **android**
+          - **key.properties** 
 
   10. Go to this file **key.properties** and add ☄️
     - **Reference the keystore from the app**
-     ```
-     storePassword=password
-     keyPassword=password
-     keyAlias=upload
-     storeFile=../app/upload-keystore.jks
-     ``` 
+       ```
+       storePassword=password
+       keyPassword=password
+       keyAlias=upload
+       storeFile=../app/upload-keystore.jks
+       ``` 
 
   11. from [Signing the app] apply [**Configure signing in gradle**] in the following path ☄️
-     ```
-     android 
-         app
-          build.gradle
-     ```
-
+        ```
+          android 
+              app
+               build.gradle
+        ```
   12. Go to **.gitignore** and the add ☄️
-     ```
-     **/android/key.properties
-     **/android/app/upload-keystore.jks
-     ```
+        ```
+         **/android/key.properties
+         **/android/app/upload-keystore.jks
+        ```
 ## Flutter Urls 😊
  - [flutter repo on github](https://github.com/MahanaElbana/flutter_repository/blob/main/README.md) ☄️
  - [Build and release an Android app](https://docs.flutter.dev/deployment/android#signing-the-app) ☄️
